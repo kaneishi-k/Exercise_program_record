@@ -19,6 +19,10 @@ public class Record {
     @Column(name = "ex_name", nullable = false)
     private String ex_name;
 
+    @Column(name = "menu", nullable = false)
+    private String menu;
+
+
     @Column(name = "comment")
     private String comment;
 
@@ -42,6 +46,14 @@ public class Record {
 
     public void setEx_name(String ex_name) {
         this.ex_name = ex_name;
+    }
+
+    public String getMenu() {
+        return menu;
+    }
+
+    public void setMenu(String menu) {
+        this.menu = menu;
     }
 
     public String getComment() {

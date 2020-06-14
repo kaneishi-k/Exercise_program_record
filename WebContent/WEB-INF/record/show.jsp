@@ -25,7 +25,7 @@
                      <tr>
                           <th>コメント</th>
                          <td>
-                             <pre><c:out value="${report.content}" /></pre>
+                             <pre><c:out value="${record.comment}" /></pre>
                          </td>
                      </tr>
                 </tbody>

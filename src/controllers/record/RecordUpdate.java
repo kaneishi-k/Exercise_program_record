@@ -1,7 +1,6 @@
 package controllers.record;
 
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
@@ -14,16 +13,16 @@ import models.Record;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class RecordCreate
+ * Servlet implementation class RecordUpdate
  */
-@WebServlet("/record/create")
-public class RecordCreate extends HttpServlet {
+@WebServlet("/record/update")
+public class RecordUpdate extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RecordCreate() {
+    public RecordUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,26 +33,16 @@ public class RecordCreate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        Record r = new Record();
-
-        Date record_date = new Date(System.currentTimeMillis());
-        String rd_str = request.getParameter("record_date");
-        if(rd_str != null && !rd_str.equals("")) {
-            record_date = Date.valueOf(request.getParameter("report_date"));
-        }
-        r.setRecord_date(record_date);
+        Record r = em.find(Record.class, (Integer)(request.getSession().getAttribute("record_id")));
 
         r.setMenu(request.getParameter("menu"));
         r.setComment(request.getParameter("comment"));
 
         em.getTransaction().begin();
-        em.persist(r);
         em.getTransaction().commit();
         em.close();
 
-
         response.sendRedirect(request.getContextPath() + "/record/index");
     }
-
 
 }

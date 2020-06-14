@@ -114,7 +114,5 @@ public class ExerciseSelect extends HttpServlet {
        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/menu.jsp");
        rd.forward(request, response);
 
-       RequestDispatcher rd2 = request.getRequestDispatcher("/WEB-INF/record/new.jsp");
-       rd2.forward(request, response);
-    }
+       }
 }

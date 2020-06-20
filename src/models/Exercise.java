@@ -22,6 +22,9 @@ public class Exercise {
     @Column(name = "reps_sets", nullable = false)
     private String reps_sets;
 
+    @Column(name = "menu")
+    private String menu;
+
     public Integer getId() {
         return id;
     }
@@ -52,6 +55,14 @@ public class Exercise {
 
     public void setReps_sets(String reps_sets) {
         this.reps_sets = reps_sets;
+    }
+
+    public String getMenu() {
+        return menu;
+    }
+
+    public void setMenu(String menu) {
+        this.menu = menu;
     }
 
 

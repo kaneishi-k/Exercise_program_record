@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>今日のメニュー</h1><br >
-        <ul><c:out value="${menu}" />
+        <ul><c:out value="${menu.ex_name}" />
         </ul>
         です。
 
